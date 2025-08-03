@@ -1,7 +1,9 @@
-<<<<<<< HEAD
 # Full-Stack Web Development
-Welcome to the Full-Stack Web Development repository! This repository contains course materials, code examples, and resources for the apna-aman course on Full-Stack Web Development. 
+
+Welcome to the Full-Stack Web Development repository! This repository contains course materials, code examples, and resources for the apna-aman course on Full-Stack Web Development.
+
 ## Overview
+
 This course is designed to provide a comprehensive learning path for individuals interested in becoming proficient in Full-Stack Web Development. The curriculum covers front-end and back-end technologies, as well as essential tools and best practices in the industry.
 
 ## Instructor
@@ -21,6 +23,7 @@ This course is designed to provide a comprehensive learning path for individuals
 <table>
 
 ## Module-1: Web Designing
+
 **Pre-requisites:** Matriculation & Basic Know How of Computer
 
 1. **HTML5**
@@ -40,6 +43,7 @@ This course is designed to provide a comprehensive learning path for individuals
 15. **Domain & Hosting Subscription (Deployment)**
 
 ## Module-2: Web Front-End Development
+
 **Pre-requisite:** Module 01
 
 16. **JavaScript**
@@ -52,7 +56,8 @@ This course is designed to provide a comprehensive learning path for individuals
 23. **NextJS (SSR, AMP)**
 24. **Firebase**
 
-## Module 03: Back-End App Development 
+## Module 03: Back-End App Development
+
 **Prereq:** Module 01 & 02
 
 26. **NodeJS (ExpressJS, NestJS)**
@@ -73,6 +78,4 @@ This course is designed to provide a comprehensive learning path for individuals
 
    ```bash
    git clone https://github.com/Muhammad-Aman1718/Full-Stack-Web-Development-Course.git
-=======
-# Full-Stack-Web-Development-Online-Course
->>>>>>> 319504dbdd0f819bb8b8be44bfe85082e03e6321
+   ```
