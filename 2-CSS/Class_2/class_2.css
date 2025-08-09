@@ -1,0 +1,14 @@
+.para {
+  font-family: Mozilla Text;
+  font-size: 20px;
+  font-weight: 800;
+  font-style: italic;
+  text-align: center;
+  color: green;
+  /* font-display: optional; */
+}
+/* 
+.img {
+  width: 1000px;
+  height: 500px;
+} */
