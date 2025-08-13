@@ -1,0 +1,12 @@
+Assignment#02
+
+Dear Students,
+
+Requirements:
+
+1- Please create the exactly same HTML structure like (table.html and form.html attach in same folder)
+2- Upload the google drive and share the public link
+
+Deadline : 16 August, 2025
+
+
