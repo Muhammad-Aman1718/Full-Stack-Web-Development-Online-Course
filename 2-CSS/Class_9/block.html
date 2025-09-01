@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <style>
+      :root {
+        --gap: 10px;
+        --bg: #cfd8e3;
+        --radius: 6px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial;
+        background: #f5f7fa;
+      }
+
+      .page {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        gap: var(--gap);
+      }
+
+      header {
+        background: var(--bg);
+        padding: 20px;
+        border-radius: var(--radius);
+        text-align: center;
+        font-weight: bold;
+        background-color: bisque;
+      }
+
+      footer {
+        background: var(--bg);
+        padding: 20px;
+        border-radius: var(--radius);
+        text-align: center;
+        font-weight: bold;
+        background-color: aquamarine;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 160px 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        gap: var(--gap);
+        padding: 0 var(--gap);
+        grid-template-areas:
+          "side00 article2 article1"
+          "side01 article4 article1"
+          "side2  article6 article1"
+          "side2  article8 article1";
+      }
+
+      .card {
+        background: var(--bg);
+        border-radius: var(--radius);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .side00 {
+        grid-area: side00;
+        background-color: chocolate;
+      }
+
+      .side01 {
+        grid-area: side01;
+        background-color: chocolate;
+      }
+
+      .side2 {
+        grid-area: side2;
+        background-color: chocolate;
+      }
+
+      .article2 {
+        grid-area: article2;
+        background-color: cadetblue;
+      }
+
+      .article4 {
+        grid-area: article4;
+        background-color: cadetblue;
+      }
+
+      .article6 {
+        grid-area: article6;
+        background-color: cadetblue;
+      }
+
+      .article8 {
+        grid-area: article8;
+        background-color: cadetblue;
+      }
+
+      .article1 {
+        grid-area: article1;
+        background-color: rgb(32, 90, 175);
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "article1"
+            "article2"
+            "article4"
+            "article6"
+            "article8"
+            "side00"
+            "side01"
+            "side2";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header>header</header>
+
+      <div class="content">
+        <div class="card side00">side-0.0</div>
+        <div class="card side01">side-0.1</div>
+        <div class="card side2">side-2</div>
+
+        <div class="card article2">article-2</div>
+        <div class="card article4">article-4</div>
+        <div class="card article6">article-6</div>
+        <div class="card article8">article-8</div>
+        <div class="card article1">article-1</div>
+      </div>
+
+      <footer>footer</footer>
+    </div>
+  </body>
+</html>

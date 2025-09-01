@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query</title>
+    <style>
+      .box {
+        background-color: lightcoral;
+        padding: 20px;
+        margin: 10px 0;
+      }
+      /* MObile */
+      @media (max-width: 600px) {
+        body {
+          background-color: green;
+        }
+        .box {
+          background-color: blue;
+        }
+      }
+      /* Tablet */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        body {
+          background-color: yellow;
+        }
+      }
+      /* LAptop */
+      @media (min-width:1024px) {
+        body {
+          background-color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Media Query Example</h1>
+    <p>This is a simple example to demonstrate media queries in CSS.</p>
+
+    <div class="box">
+      <h2>Box 1</h2>
+      <p>This is the first box.</p>
+    </div>
+    <div class="box">
+      <h2>Box 2</h2>
+      <p>This is the second box.</p>
+    </div>
+  </body>
+</html>
