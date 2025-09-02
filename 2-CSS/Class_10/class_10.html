@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Practice — Desktop-only Landing Page</title>
+    <style>
+      /* -------------------------------------------------
+       Desktop-only landing page styles (INTENTIONALLY
+       non-responsive). Use this file to practice
+       adding media queries and responsive behavior.
+       ------------------------------------------------- */
+
+      :root {
+        --bg: #f7f8fb;
+        --card: #ffffff;
+        --muted: #6b7280;
+        --accent: #2563eb; /* blue */
+        --accent-2: #f97316; /* orange */
+        --container-w: 1200px; /* fixed width — non-responsive */
+        --radius: 12px;
+        --shadow: 0 12px 30px rgba(6, 8, 15, 0.08);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: #111827;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Fixed-width central container (not responsive) */
+      .container {
+        /* width: var(--container-w); */
+        margin: 32px auto;
+        max-width: 1220px;
+      }
+
+      header.site-header {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.95)
+        );
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 20px 28px;
+      }
+
+      /* HERO */
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        margin-top: 28px;
+        padding: 36px;
+        background: linear-gradient(180deg, #ffffff, #fbfdff);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-left {
+        width: 56%;
+      }
+      .hero h1 {
+        font-size: 44px;
+        margin: 0 0 12px 0;
+        line-height: 1.02;
+      }
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .hero-actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .hero-right {
+        width: 44%;
+        display: grid;
+        place-items: center;
+      }
+      .mockup {
+        width: 420px;
+        height: 300px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.08);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .mockup .top {
+        height: 56px;
+        background: rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        padding: 10px 14px;
+        gap: 10px;
+      }
+      .mockup .content {
+        flex: 1;
+        padding: 18px;
+      }
+
+      /* FEATURES — 3 columns */
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 28px;
+      }
+      .feature-card {
+        background: var(--card);
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        min-height: 160px;
+      }
+      .feature-card h3 {
+        margin: 0 0 8px 0;
+      }
+      .feature-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* HOW IT WORKS — horizontal steps */
+      .how {
+        display: flex;
+        gap: 20px;
+        margin-top: 28px;
+      }
+      .step {
+        flex: 1;
+        background: linear-gradient(180deg, #fff, #ffffff);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .step .num {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+        background: #f1f5f9;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+
+      /* PRICING — 3 cards with subtle scale */
+      .pricing {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 28px;
+      }
+      .price-card {
+        background: linear-gradient(180deg, #fff, #fff);
+        padding: 26px;
+        border-radius: 14px;
+        text-align: center;
+        border: 1px solid #eef2ff;
+      }
+      .price-card .price {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 8px 0;
+      }
+      .price-card .features-list {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 8px 0 16px 0;
+      }
+
+      /* TESTIMONIALS — slider */
+      .testimonials {
+        margin-top: 28px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .testimonial-card {
+        flex: 1;
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .test-meta {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 12px;
+      }
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #eef2ff;
+      }
+
+      /* GALLERY — fixed grid */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* FAQ & Contact */
+      .faq-contact {
+        display: flex;
+        gap: 20px;
+        margin-top: 28px;
+      }
+      .faq {
+        flex: 1;
+        padding: 18px;
+        background: var(--card);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .contact {
+        width: 360px;
+        padding: 18px;
+        background: linear-gradient(180deg, #fff, #fff);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .contact input,
+      .contact textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border: 1px solid #e6eef9;
+        border-radius: 8px;
+      }
+      .contact button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 12px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 8px;
+        border: none;
+      }
+
+      /* Small utility (intentionally no responsive helpers) */
+      .muted {
+        color: var(--muted);
+      }
+      .center {
+        text-align: center;
+      }
+
+      /* Simple JS hooks (styles only) */
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 1220px) {
+        .hero {
+          flex-direction: column;
+          width: none;
+        }
+        .hero-left,
+        .hero-right {
+          width: 100%;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <h1 id="hero-title">
+            Build modern web apps faster — with confidence.
+          </h1>
+          <p>
+            Ship production-ready UIs, scalable backends, and delightful user
+            experiences. A complete starter kit for ambitious teams and
+            freelancers.
+          </p>
+          <div class="hero-actions">
+            <button class="cta-btn">Start Free Trial</button>
+            <a href="#pricing" style="font-weight: 700; color: var(--accent)"
+              >See pricing →</a
+            >
+          </div>
+
+          <div
+            style="
+              margin-top: 20px;
+              display: flex;
+              gap: 12px;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                background-color: #fff;
+                padding: 8px;
+                border-radius: 8px;
+                box-shadow: 0 8px 24px rgba(72, 59, 211, 0.126);
+              "
+            >
+              <strong>Used by</strong>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center">
+              <img
+                src="https://picsum.photos/seed/logo1/60/30"
+                alt="logo"
+                style="height: 30px"
+              />
+              <img
+                src="https://picsum.photos/seed/logo2/60/30"
+                alt="logo"
+                style="height: 30px"
+              />
+              <img
+                src="https://picsum.photos/seed/logo3/60/30"
+                alt="logo"
+                style="height: 30px"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="mockup" aria-hidden="true">
+            <div class="top">
+              <div
+                style="
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 2px;
+                  background: #ff385c;
+                "
+              ></div>
+              <div
+                style="
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 2px;
+                  background: #f59e0b;
+                "
+              ></div>
+              <div
+                style="
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 2px;
+                  background: #10b981;
+                "
+              ></div>
+            </div>
+            <div class="content">
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+                  margin-bottom: 10px;
+                "
+              >
+                <div
+                  style="
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: #60a5fa;
+                  "
+                ></div>
+                <div style="font-weight: 700">Dashboard</div>
+              </div>
+              <div
+                style="
+                  height: 8px;
+                  background: #e6f2ff;
+                  border-radius: 6px;
+                  width: 80%;
+                  margin-bottom: 12px;
+                "
+              ></div>
+              <p style="color: var(--muted); margin: 0">
+                Example of a clean UI where you can monitor KPIs, track active
+                users and manage projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features" class="features" aria-label="Key features">
+        <article class="feature-card">
+          <h3>Fast to ship</h3>
+          <p>
+            Pre-built components and templates help you deliver features quickly
+            without sacrificing quality.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Scalable architecture</h3>
+          <p>
+            Design decisions that make scaling predictable and maintenance
+            simple as your user base grows.
+          </p>
+        </article>
+        <article class="feature-card">
+          <h3>Secure by default</h3>
+          <p>
+            Best practices for authentication, data validation, and secure API
+            patterns are included.
+          </p>
+        </article>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="how" aria-label="How it works">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>Plan & Prototype</h4>
+            <p class="muted">
+              Define user flows and wireframes before writing a single line of
+              code.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>Develop</h4>
+            <p class="muted">
+              Use modern frameworks and patterns to build efficient codebases
+              fast.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>Deploy & Monitor</h4>
+            <p class="muted">
+              Ship to production and keep tabs on performance and reliability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="pricing" aria-label="Pricing options">
+        <div class="price-card">
+          <div style="font-weight: 700">Starter</div>
+          <div class="price">$12<span style="font-size: 14px">/mo</span></div>
+          <div class="features-list">Basic templates • Community support</div>
+          <button class="cta-btn">Choose Starter</button>
+        </div>
+        <div class="price-card">
+          <div style="font-weight: 700">Pro</div>
+          <div class="price">$39<span style="font-size: 14px">/mo</span></div>
+          <div class="features-list">
+            Everything in Starter • Advanced components
+          </div>
+          <button class="cta-btn">Choose Pro</button>
+        </div>
+        <div class="price-card">
+          <div style="font-weight: 700">Enterprise</div>
+          <div class="price">Contact</div>
+          <div class="features-list">
+            SLA • Dedicated support • Custom integrations
+          </div>
+          <button class="cta-btn">Contact Sales</button>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="testimonials" aria-label="Testimonials">
+        <div class="testimonial-card">
+          <p>
+            “AmanTech helped our team ship faster — the starter templates saved
+            weeks of work.”
+          </p>
+          <div class="test-meta">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight: 700">Sara Khan</div>
+              <div class="muted" style="font-size: 13px">
+                Product Manager, BrightApps
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            “The backend patterns are solid — scaling to thousands of users was
+            straightforward.”
+          </p>
+          <div class="test-meta">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight: 700">Omar Ali</div>
+              <div class="muted" style="font-size: 13px">CTO, Shopline</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery" aria-label="Gallery">
+        <img src="https://picsum.photos/seed/g1/400/250" alt="gallery image" />
+        <img src="https://picsum.photos/seed/g2/400/250" alt="gallery image" />
+        <img src="https://picsum.photos/seed/g3/400/250" alt="gallery image" />
+        <img src="https://picsum.photos/seed/g4/400/250" alt="gallery image" />
+      </section>
+
+      <!-- FAQ + CONTACT -->
+      <section class="faq-contact">
+        <div class="faq">
+          <h3>Frequently Asked Questions</h3>
+          <details>
+            <summary>Do I get a trial?</summary>
+            <p class="muted">Yes — all plans include a 14-day free trial.</p>
+          </details>
+          <details>
+            <summary>Is there support?</summary>
+            <p class="muted">
+              Community support for Starter, priority support for Pro.
+            </p>
+          </details>
+          <details>
+            <summary>Can I cancel anytime?</summary>
+            <p class="muted">
+              Yes — monthly plans can be canceled at any time.
+            </p>
+          </details>
+        </div>
+
+        <aside id="contact" class="contact" aria-label="Contact form">
+          <h3>Get in touch</h3>
+          <p class="muted">Have a question or want a demo? Send a message.</p>
+          <form>
+            <label for="name">Name</label>
+            <input id="name" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@company.com"
+              required
+            />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="6"
+              placeholder="Tell us about your project"
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </aside>
+      </section>
+    </div>
+  </body>
+</html>
