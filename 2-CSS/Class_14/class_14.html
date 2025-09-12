@@ -14,23 +14,20 @@
         width: 100px;
         height: 100px;
         background-color: coral;
-        /* transform: translate(20px, 500px); */
-        /* transform: translate(200px, 500px); */
         /* transform: ; */
-        transform: rotate(45deg) scale(0.5);
-        /* transform-origin: bottom right; */
-        transition: all 0.5s ease;
+        transform: rotate(-45deg) scale(2);
+        /* transform: rotate(45deg) scale(0.5); */
+        transition: all 5s ease;
       }
 
       .box:hover {
-        /* transform: rotate(45deg) scale(1.5); */
-        transform: skew(0deg, 40deg);
+        transform: rotate(360deg) scale3d(1, 3, 9);
         background-color: lightblue;
       }
     </style>
   </head>
   <body>
     <h1>2D Transform</h1>
-    <div class="box"></div>
+    <div class="box">I'm</div>
   </body>
 </html>
