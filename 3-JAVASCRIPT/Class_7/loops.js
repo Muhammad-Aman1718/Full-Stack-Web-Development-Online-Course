@@ -2,12 +2,12 @@
 
 // For Loop
 
-// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// console.log(arr.length);
-dex = 0; index < 100; index++) {
-  console.log(index);
-}
-for (let in
+// let array = 10;
+// let string = "Hello World";
+// console.log(string.length);
+// for (let index = 0; index < string.length; index++) {
+//   console.log("this is number   " + string[index]);
+// }
 
 // console.log(array[0]);
 // console.log(array[1]);
@@ -18,3 +18,21 @@ for (let in
 // let a = 0; // a = a+1
 // a += 1;
 // console.log(a);
+
+// While Loop
+
+// let num = 0;
+// let input = +prompt("Enter a number less than 10");
+// while (num < input) {
+//   console.log("this is number " + num);
+//   num++;
+// }
+
+// do-while Loop
+
+let number = 0;
+do {
+  console.log("this is number " + number);
+  number++;
+} while (number < 2);
+       // 1
