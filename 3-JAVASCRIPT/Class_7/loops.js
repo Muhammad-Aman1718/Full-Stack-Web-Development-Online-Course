@@ -30,9 +30,41 @@
 
 // do-while Loop
 
-let number = 0;
-do {
-  console.log("this is number " + number);
-  number++;
-} while (number < 2);
-       // 1
+// let number = 0;
+// do {
+//   console.log("this is number " + number);
+//   number++;
+// } while (number < 2);
+
+// Switch Case
+
+let day = "sunday";
+switch (day) {
+  case "sunday": {
+    console.log("Sunday");
+    break;
+  }
+  case "monday": {
+    console.log("Monday");
+    break;
+  }
+  case "tuesday": {
+    console.log("Tuesday");
+    break;
+  }
+  case "wednesday": {
+    console.log("Wednesday");
+    break;
+  }
+  case "thursday": {
+    console.log("Thursday");
+    break;
+  }
+  case "friday": {
+    console.log("Friday");
+    break;
+  }
+  default: {
+    console.log("Saturday");
+  }
+}
